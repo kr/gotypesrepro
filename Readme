@@ -1,0 +1,19 @@
+minimal test case for go/types import
+
+Steps to reproduce:
+
+	1. git clone https://github.com/kr/gotypesrepro $GOPATH/src/p
+	2. cd $GOPATH/src/p
+	3. go run try.go # fails
+	4. go install p
+	5. go run try.go # now it works
+
+Expected output:
+
+	package testdata ("testdata") # first go run
+	package testdata ("testdata") # second go run
+
+Actual output:
+
+	testdata/import.go:3:8: could not import p (can't find import: p)
+	package testdata ("testdata")
